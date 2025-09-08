@@ -36,6 +36,9 @@ namespace PrivateServerClient.WinForm
             LeaderboardUser selectedUser = _leaderboardUsers[clickedIndex];
             LeaderboardUserInfoForm leaderboardUserInfoForm = new(selectedUser);
             leaderboardUserInfoForm.Show();
+
+
+            globalLeaderboardList.SelectedIndex = -1;
         }
 
         private void BestPerformanceList_MouseDown(object sender, MouseEventArgs e)
@@ -46,6 +49,8 @@ namespace PrivateServerClient.WinForm
             Score selectedScore = _playerBestPerformanceData.Scores[clickedIndex];
             ScoreInfoForm scoreInfoForm = new(selectedScore);
             scoreInfoForm.Show();
+
+            bestPerformanceList.SelectedIndex = -1;
         }
 
         private void PlayingHistoryList_MouseDown(object sender, MouseEventArgs e)
@@ -56,6 +61,8 @@ namespace PrivateServerClient.WinForm
             Score selectedScore = _playerBestPerformanceData.Scores[clickedIndex];
             ScoreInfoForm scoreInfoForm = new(selectedScore);
             scoreInfoForm.Show();
+
+            playingHistoryList.SelectedIndex = -1;
         }
         #endregion
 
