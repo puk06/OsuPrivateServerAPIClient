@@ -68,7 +68,14 @@ namespace PrivateServerClient.WinForm
             var privateServerClient = new PrivateServerApiClient(privateServer);
 
             var leaderboardUsers = await privateServerClient.GetLeaderBoard(modeComboBox.SelectedIndex);
-            if (leaderboardUsers != null) _leaderboardUsers = leaderboardUsers;
+            if (leaderboardUsers == null)
+            {
+                MessageBox.Show("リーダーボードデータの取得に失敗しました。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _leaderboardUsers = leaderboardUsers;
+            }
 
             GenerateLeaderboard();
         }
@@ -81,10 +88,24 @@ namespace PrivateServerClient.WinForm
             var privateServerClient = new PrivateServerApiClient(privateServer);
 
             var bestPerformanceData = await privateServerClient.GetBestPerformance(userIdBox.Text, modeComboBox.SelectedIndex);
-            if (bestPerformanceData != null) _playerBestPerformanceData = bestPerformanceData;
+            if (bestPerformanceData == null)
+            {
+                MessageBox.Show("PPデータの取得に失敗しました。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _playerBestPerformanceData = bestPerformanceData;
+            }
 
             var playingHistoryData = await privateServerClient.GetPlayingHistory(userIdBox.Text, modeComboBox.SelectedIndex);
-            if (playingHistoryData != null) _playerPlayingHistoryData = playingHistoryData;
+            if (playingHistoryData == null)
+            {
+                MessageBox.Show("プレイ履歴データの取得に失敗しました。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _playerPlayingHistoryData = playingHistoryData;
+            }
 
             GenerateUserBestPerformance();
             GenerateUserPlayingHistory();
