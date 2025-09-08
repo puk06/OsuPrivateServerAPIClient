@@ -63,6 +63,7 @@ namespace PrivateServerClient.WinForm
         async private void GetLeadboardData()
         {
             if (!CheckInterval()) return;
+            if (!CheckText(serverEndpoint.Text, "サーバー")) return;
 
             var privateServer = new PrivateServer(serverEndpoint.Text);
             var privateServerClient = new PrivateServerApiClient(privateServer);
@@ -83,6 +84,7 @@ namespace PrivateServerClient.WinForm
         async private void GetUserData()
         {
             if (!CheckInterval()) return;
+            if (!CheckText(serverEndpoint.Text, "サーバー") || !CheckText(userIdBox.Text, "ユーザーID")) return;
 
             var privateServer = new PrivateServer(serverEndpoint.Text);
             var privateServerClient = new PrivateServerApiClient(privateServer);
@@ -169,6 +171,17 @@ namespace PrivateServerClient.WinForm
             }
 
             _lastAccessToApi = currentTime;
+            return true;
+        }
+
+        private static bool CheckText(string text, string name)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                MessageBox.Show($"{name}欄を空白にすることは出来ません。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             return true;
         }
     }
