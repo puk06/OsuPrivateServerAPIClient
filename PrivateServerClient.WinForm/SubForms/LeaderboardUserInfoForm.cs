@@ -1,5 +1,5 @@
 ﻿using PrivateServerClient.Core.Models.Leaderboard;
-using PrivateServerClient.WinForm.Utils;
+using PrivateServerClient.Core.Utils;
 
 namespace PrivateServerClient.WinForm.SubForms;
 

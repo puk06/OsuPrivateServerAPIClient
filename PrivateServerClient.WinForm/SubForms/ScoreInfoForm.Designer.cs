@@ -50,48 +50,48 @@
             // songNameLabel
             // 
             songNameLabel.AutoSize = true;
-            songNameLabel.Font = new Font("Yu Gothic UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            songNameLabel.Font = new Font("Yu Gothic UI", 25F, FontStyle.Bold);
             songNameLabel.Location = new Point(12, 9);
             songNameLabel.Name = "songNameLabel";
-            songNameLabel.Size = new Size(235, 54);
+            songNameLabel.Size = new Size(200, 46);
             songNameLabel.TabIndex = 2;
             songNameLabel.Text = "Song Name";
             // 
             // ppLabel
             // 
             ppLabel.Font = new Font("Yu Gothic UI", 40F, FontStyle.Bold);
-            ppLabel.Location = new Point(319, 124);
+            ppLabel.Location = new Point(319, 111);
             ppLabel.Name = "ppLabel";
-            ppLabel.Size = new Size(469, 150);
+            ppLabel.Size = new Size(469, 179);
             ppLabel.TabIndex = 5;
             ppLabel.Text = "1250pp";
-            ppLabel.TextAlign = ContentAlignment.MiddleRight;
+            ppLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Yu Gothic UI", 14F);
-            label3.Location = new Point(12, 124);
+            label3.Location = new Point(12, 111);
             label3.Name = "label3";
-            label3.Size = new Size(93, 150);
+            label3.Size = new Size(93, 175);
             label3.TabIndex = 6;
-            label3.Text = "精度\r\n最大コンボ\r\nGreat\r\nOk\r\nMeh\r\nMiss";
+            label3.Text = "精度\r\n最大コンボ\r\nGreat\r\nOk\r\nMeh\r\nMiss\r\nMods";
             // 
             // scoreStatsLabel
             // 
             scoreStatsLabel.AutoSize = true;
             scoreStatsLabel.Font = new Font("Yu Gothic UI", 14F);
-            scoreStatsLabel.Location = new Point(215, 124);
+            scoreStatsLabel.Location = new Point(154, 115);
             scoreStatsLabel.Name = "scoreStatsLabel";
-            scoreStatsLabel.Size = new Size(93, 150);
+            scoreStatsLabel.Size = new Size(93, 175);
             scoreStatsLabel.TabIndex = 7;
-            scoreStatsLabel.Text = "精度\r\n最大コンボ\r\nGreat\r\nOk\r\nMeh\r\nMiss";
+            scoreStatsLabel.Text = "精度\r\n最大コンボ\r\nGreat\r\nOk\r\nMeh\r\nMiss\r\nMods";
             // 
             // ScoreInfoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 283);
+            ClientSize = new Size(800, 299);
             Controls.Add(scoreStatsLabel);
             Controls.Add(label3);
             Controls.Add(ppLabel);

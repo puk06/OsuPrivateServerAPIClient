@@ -38,10 +38,10 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Font = new Font("Yu Gothic UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 128);
+            usernameLabel.Font = new Font("Yu Gothic UI", 25F, FontStyle.Bold);
             usernameLabel.Location = new Point(12, 9);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(204, 54);
+            usernameLabel.Size = new Size(176, 46);
             usernameLabel.TabIndex = 0;
             usernameLabel.Text = "Username";
             // 

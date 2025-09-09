@@ -3,8 +3,8 @@ using PrivateServerClient.Core.Models;
 using PrivateServerClient.Core.Models.ApiResults;
 using PrivateServerClient.Core.Models.Leaderboard;
 using PrivateServerClient.Core.Models.PlayerScores;
+using PrivateServerClient.Core.Utils;
 using PrivateServerClient.WinForm.SubForms;
-using PrivateServerClient.WinForm.Utils;
 
 namespace PrivateServerClient.WinForm
 {
@@ -151,7 +151,7 @@ namespace PrivateServerClient.WinForm
             for (int i = 0; i < _playerBestPerformanceData.Scores.Count; i++)
             {
                 Score score = _playerBestPerformanceData.Scores[i];
-                bestPerformanceList.Items.Add($"#{i + 1}  |  š{score.Beatmap.Difficulty:F2} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
+                bestPerformanceList.Items.Add($"#{i + 1}  |  š{score.Beatmap.Difficulty:F2} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {string.Join(',', OsuUtils.ParseMods(score.Mods))} - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
             }
         }
 
@@ -164,7 +164,7 @@ namespace PrivateServerClient.WinForm
             for (int i = 0; i < _playerPlayingHistoryData.Scores.Count; i++)
             {
                 Score score = _playerPlayingHistoryData.Scores[i];
-                playingHistoryList.Items.Add($"#{i + 1}  |  {score.Grade} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
+                playingHistoryList.Items.Add($"#{i + 1}  |  {score.Grade} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {string.Join(',', OsuUtils.ParseMods(score.Mods))} - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
             }
         }
         #endregion
