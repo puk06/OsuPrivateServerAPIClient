@@ -1,4 +1,5 @@
 ﻿using PrivateServerClient.Core.Models.PlayerScores;
+using PrivateServerClient.WinForm.Utils;
 
 namespace PrivateServerClient.WinForm.SubForms;
 
@@ -12,8 +13,8 @@ public partial class ScoreInfoForm : Form
 
     public void SetValueFromUser(Score score)
     {
-        songNameLabel.Text = score.Beatmap.Title;
-        starsLabel.Text = $"★{score.Beatmap.Difficulty:F2}  [{score.Beatmap.Version}]  作者 {score.Beatmap.Creator}";
+        songNameLabel.Text = TextUtils.CheckString(score.Beatmap.Title);
+        starsLabel.Text = $"★{score.Beatmap.Difficulty:F2}  [{TextUtils.CheckString(score.Beatmap.Version)}]  作者 {TextUtils.CheckString(score.Beatmap.Creator)})";
 
         scoreStatsLabel.Text = $"{score.Accuracy:F2}%\n{score.MaxCombo}\n{score.Count300}\n{score.Count100}\n{score.Count50}\n{score.Misses}";
         ppLabel.Text = $"{score.PerformancePoints}pp";

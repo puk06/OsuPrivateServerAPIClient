@@ -4,6 +4,7 @@ using PrivateServerClient.Core.Models.ApiResults;
 using PrivateServerClient.Core.Models.Leaderboard;
 using PrivateServerClient.Core.Models.PlayerScores;
 using PrivateServerClient.WinForm.SubForms;
+using PrivateServerClient.WinForm.Utils;
 
 namespace PrivateServerClient.WinForm
 {
@@ -132,11 +133,11 @@ namespace PrivateServerClient.WinForm
 
                 if (!string.IsNullOrEmpty(user.ClanTag))
                 {
-                    globalLeaderboardList.Items.Add($"#{i + 1}  |  {user.TotalPP}pp - [{user.ClanTag}] {user.Name} (ID: {user.PlayerId})");
+                    globalLeaderboardList.Items.Add($"#{i + 1}  |  {user.TotalPP}pp - [{user.ClanTag}] {TextUtils.CheckString(user.Name)} (ID: {user.PlayerId})");
                 }
                 else
                 {
-                    globalLeaderboardList.Items.Add($"#{i + 1}  |  {user.TotalPP}pp - {user.Name} (ID: {user.PlayerId})");
+                    globalLeaderboardList.Items.Add($"#{i + 1}  |  {user.TotalPP}pp - {TextUtils.CheckString(user.Name)} (ID: {user.PlayerId})");
                 }
             }
         }
@@ -145,12 +146,12 @@ namespace PrivateServerClient.WinForm
         {
             bestPerformanceList.Items.Clear();
 
-            bestPerformanceList.Items.Add($"   -  {modeComboBox.Text} Best Performance for {_playerBestPerformanceData.Player.Name}   -   ");
+            bestPerformanceList.Items.Add($"   -  {modeComboBox.Text} Best Performance for {TextUtils.CheckString(_playerBestPerformanceData.Player.Name)}   -   ");
 
             for (int i = 0; i < _playerBestPerformanceData.Scores.Count; i++)
             {
                 Score score = _playerBestPerformanceData.Scores[i];
-                bestPerformanceList.Items.Add($"#{i + 1}  |  š{score.Beatmap.Difficulty:F2} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {score.Beatmap.Title} by {score.Beatmap.Artist} ({score.Beatmap.Version})");
+                bestPerformanceList.Items.Add($"#{i + 1}  |  š{score.Beatmap.Difficulty:F2} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
             }
         }
 
@@ -158,12 +159,12 @@ namespace PrivateServerClient.WinForm
         {
             playingHistoryList.Items.Clear();
 
-            playingHistoryList.Items.Add($"   -  {modeComboBox.Text} Playing History for {_playerPlayingHistoryData.Player.Name}   -   ");
+            playingHistoryList.Items.Add($"   -  {modeComboBox.Text} Playing History for {TextUtils.CheckString(_playerPlayingHistoryData.Player.Name)}   -   ");
 
             for (int i = 0; i < _playerPlayingHistoryData.Scores.Count; i++)
             {
                 Score score = _playerPlayingHistoryData.Scores[i];
-                playingHistoryList.Items.Add($"#{i + 1}  |  {score.Grade} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {score.Beatmap.Title} by {score.Beatmap.Artist} ({score.Beatmap.Version})");
+                playingHistoryList.Items.Add($"#{i + 1}  |  {score.Grade} - {score.PerformancePoints:F}pp - {score.Accuracy:F2}% - {TextUtils.CheckString(score.Beatmap.Title)} by {TextUtils.CheckString(score.Beatmap.Artist)} ({TextUtils.CheckString(score.Beatmap.Version)})");
             }
         }
         #endregion
