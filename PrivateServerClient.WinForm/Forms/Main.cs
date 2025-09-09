@@ -56,9 +56,9 @@ namespace PrivateServerClient.WinForm
         private void PlayingHistoryList_MouseDown(object sender, MouseEventArgs e)
         {
             int clickedIndex = playingHistoryList.IndexFromPoint(e.Location) - 1;
-            if (clickedIndex < 0 || clickedIndex >= _playerBestPerformanceData.Scores.Count) return;
+            if (clickedIndex < 0 || clickedIndex >= _playerPlayingHistoryData.Scores.Count) return;
 
-            Score selectedScore = _playerBestPerformanceData.Scores[clickedIndex];
+            Score selectedScore = _playerPlayingHistoryData.Scores[clickedIndex];
             ScoreInfoForm scoreInfoForm = new(selectedScore);
             scoreInfoForm.Show();
 
